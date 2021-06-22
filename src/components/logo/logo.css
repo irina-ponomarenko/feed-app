@@ -1,0 +1,17 @@
+.logo-link > span {
+    color: #1d3554;
+    font-family: "Rajdhani";
+    font-size: 25px;
+    font-weight: 700;
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+.logo > img {
+    transform: scale(0.8);
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+}
