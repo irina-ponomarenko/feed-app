@@ -10,7 +10,7 @@
 }
 
 .topbar.is_stuck {
-    z-index: 999999;
+    z-index: 10000;
     padding-top: 0;
     padding-bottom: 0;
 }

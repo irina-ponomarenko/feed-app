@@ -1,0 +1,22 @@
+.btn{
+    background: rgba(8,141,205,.6);
+    border: 2px solid transparent;
+    border-radius: 30px;
+    color: #fff;
+    display: inline-block;
+    font-weight: 500;
+    padding: 10px 26px;
+    transition: all 0.2s linear 0s;
+}
+
+.btn-blue{
+    border-radius: 5px;
+    padding: 6px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-color: #088dcd;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s linear 0s;
+}
+
