@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./webElements.css";
 
@@ -13,9 +13,16 @@ import  sign from  "../../assets/images/user-login.svg";
 
 import WebElement from "../webElement/WebElement";
 import UserElement from "../userElement/UserElement";
+import Popup from "../popup/Popup";
 
 
 const WebElements = () => {
+
+    const [isOpenModal, setIsOpenModal] = useState(false);
+
+    let closeModal = () => {
+      setIsOpenModal(false);
+    };
 
     const webElementsList = [
         {
@@ -23,68 +30,96 @@ const WebElements = () => {
             alt: "noise",
             target: true,
             class: "",
+            handlerClick: (event) => {
+                event.preventDefault();
+            }
         },
         {
             url: house,
             alt: "house",
             target: true,
             class: "",
+            handlerClick: (event) => {
+                event.preventDefault();
+            }
         },
         {
             url: message,
             alt: "message",
             target: true,
             class: "",
+            handlerClick: (event) => {
+                event.preventDefault();
+            }
         },
         {
             url: bell,
             alt: "bell",
             target: true,
             class: "",
+            handlerClick: (event) => {
+                event.preventDefault();
+            }
         },
         {
             url: plus,
             alt: "plus",
             target: true,
             class: "",
+            handlerClick: (event) => {
+                event.preventDefault();
+            }
         },
         {
             url: blocks,
             alt: "blocks",
             target: true,
             class: "",
+            handlerClick: (event) => {
+                event.preventDefault();
+            }
         },
         {
             url: sign,
             alt: "sign",
             target: true,
             class: "sign-btn",
+            handlerClick: () => {
+                setIsOpenModal(true);
+            }
         },
 
     ]
     return(
-        <div className="web-elements">
-           <UserElement/>
+        <React.Fragment>
+            <div className="web-elements">
+                <UserElement/>
 
-            <ul className="web-elements-list">
+                <ul className="web-elements-list">
 
-                {
-                    webElementsList.map((item, index) => {
-                        return(
-                            <li className="web-element-item" key={index}>
-                                <WebElement
-                                    url={item.url}
-                                    alt={item.alt}
-                                    target={item.target}
-                                    class={item.class}
-                                />
-                            </li>
-                        )
-                    })
-                }
-            </ul>
+                    {
+                        webElementsList.map((item, index) => {
+                            return(
+                                <li className="web-element-item" key={index}>
+                                    <WebElement
+                                        url={item.url}
+                                        alt={item.alt}
+                                        target={item.target}
+                                        class={item.class}
+                                        handlerClick={item.handlerClick}
+                                    />
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
+            <Popup
+                isOpen={isOpenModal}
+                closeModal={closeModal}
+            />
+        </React.Fragment>
 
-        </div>
     )
 };
 

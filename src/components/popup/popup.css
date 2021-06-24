@@ -12,6 +12,11 @@
     min-width: 300px;
     min-height: 100px;
     z-index: 99999;
+    display: none;
+}
+
+.popup.is-visible{
+    display: block;
 }
 
 .header-popup h3{

@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 import "./popup.css";
 import Input from "../input/Input";
 import BlueButton from "../blueButton/BlueButton";
 
-const Popup = () => {
+const Popup = (props) => {
+    const [isOpen, setIsOpen] = useState(props.isOpen);
+
+    useEffect(() => {
+        setIsOpen(props.isOpen);
+
+    }, [props.isOpen]);
+
+
     let listInputs = [
         {
             type: "text",
@@ -16,12 +24,12 @@ const Popup = () => {
         },
     ]
     return(
-       <div className="popup">
+       <div className={'popup ' + (isOpen ? 'is-visible' : '')}>
            <div className="header-popup">
                <h3>
                    Sign In
                </h3>
-               <span className="popup-closed"></span>
+               <span className="popup-closed" onClick={props.closeModal}></span>
            </div>
            <div className="body-popup">
                <form className="form-popup">
