@@ -32,3 +32,9 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     margin: 0 auto;
 }
+
+.container{
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+}
