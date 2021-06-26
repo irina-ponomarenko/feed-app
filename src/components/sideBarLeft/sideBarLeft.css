@@ -1,0 +1,9 @@
+.block-title{
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    width: 100%;
+    position: relative;
+}

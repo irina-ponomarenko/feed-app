@@ -9,15 +9,16 @@ import  bell from  "../../assets/images/bell.svg";
 import  plus from  "../../assets/images/plus.svg";
 import  blocks from  "../../assets/images/blocks.svg";
 import  sign from  "../../assets/images/user-login.svg";
+import FormSign from "../formSign/FormSign";
 
 
-import WebElement from "../webElement/WebElement";
+import RoundBtn from "../ui/roundBtn/RoundBtn";
 import UserElement from "../userElement/UserElement";
-import Popup from "../popup/Popup";
+import Popup from "../ui/popup/Popup";
+
 
 
 const WebElements = () => {
-
     const [isOpenModal, setIsOpenModal] = useState(false);
 
     let closeModal = () => {
@@ -88,9 +89,9 @@ const WebElements = () => {
                 setIsOpenModal(true);
             }
         },
+    ];
 
-    ]
-    return(
+    return (
         <React.Fragment>
             <div className="web-elements">
                 <UserElement/>
@@ -101,7 +102,7 @@ const WebElements = () => {
                         webElementsList.map((item, index) => {
                             return(
                                 <li className="web-element-item" key={index}>
-                                    <WebElement
+                                    <RoundBtn
                                         url={item.url}
                                         alt={item.alt}
                                         target={item.target}
@@ -115,12 +116,14 @@ const WebElements = () => {
                 </ul>
             </div>
             <Popup
+                title="Sign In"
                 isOpen={isOpenModal}
                 closeModal={closeModal}
-            />
+            >
+               <FormSign/>
+            </Popup>
         </React.Fragment>
-
-    )
+    );
 };
 
 export default WebElements;

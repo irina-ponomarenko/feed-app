@@ -1,4 +1,4 @@
-.widget{
+.block{
     background: #fafafa none repeat scroll 0 0;
     border: 1px solid #e1e8ed;
     border-radius: 5px;
@@ -9,33 +9,10 @@
     width: 100%;
     z-index: 9;
     max-width: 284px;
+    min-height: 244px;
 }
 
-.widget-title{
-    display: inline-block;
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 20px;
-    vertical-align: middle;
-    width: 100%;
-    position: relative;
-}
 
-.image-widget{
-    display: none;
-}
-
-.whitish .image-widget{
-    display: block;
-}
-
-.widget .bg-block{
-    display: none;
-}
-
-.whitish{
-    position: relative;
-}
 .whitish .bg-block{
     display: block;
     background-position: center center;
@@ -54,7 +31,14 @@
     z-index: 0;
 }
 
-.whitish::after{
+.whitish img{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.whitish::before{
     background:  rgba(255, 255, 255, .7);
     content: "";
     height: 100%;
@@ -62,12 +46,31 @@
     position: absolute;
     top: 0;
     width: 100%;
+    z-index: 1;
 }
 
-.widget .widget-btn{
-    display: none;
+time{
+    color: #088dcd;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.experience .widget-btn{
-    display: block;
+.date time{
+    color: #3e3f5e;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    max-width: 90%;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.9);
+}
+
+.date-time{
+    position: relative;
+    z-index: 3;
+    margin-top: 60px;
 }

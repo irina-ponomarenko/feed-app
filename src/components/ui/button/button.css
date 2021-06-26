@@ -1,5 +1,4 @@
 .btn{
-    background: rgba(8,141,205,.6);
     border: 2px solid transparent;
     border-radius: 30px;
     color: #fff;
@@ -9,7 +8,8 @@
     transition: all 0.2s linear 0s;
 }
 
-.btn-blue{
+.btn-blue-popup{
+    background: rgba(8,141,205,.6);
     border-radius: 5px;
     padding: 6px;
     width: 100%;
@@ -20,3 +20,8 @@
     transition: all 0.2s linear 0s;
 }
 
+.btn-blue-popup:hover{
+    transform: translateY(-5px);
+    background: #055f8b;
+    color: #fff;
+}

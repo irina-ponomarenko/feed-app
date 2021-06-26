@@ -5,7 +5,7 @@ import "./logo.css";
 import logo from "../../assets/images/logo.png";
 
 const Logo = () => {
-    return(
+    return (
         <Link to="/" className="logo-link">
             <div className="logo">
                 <img src={ logo } alt="logo"/>
@@ -14,7 +14,7 @@ const Logo = () => {
                 Socimo
             </span>
         </Link>
-    )
+    );
 }
 
 export default Logo;

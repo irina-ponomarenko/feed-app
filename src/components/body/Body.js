@@ -1,5 +1,5 @@
 import React from "react";
-import Column from "../column/Column";
+import Column from "../sideBarLeft/SideBarLeft";
 
 const Body = () => {
     return(
