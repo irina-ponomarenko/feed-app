@@ -1,0 +1,22 @@
+.list-filters{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style: outside none none;
+    margin: 0 0 20px;
+    padding: 0;
+    width: 100%;
+}
+
+.list-filters li:not(:last-child){
+    margin-right: 5px;
+}
+
+.list-filters li{
+    display: inherit;
+}
+
+.center-column{
+    flex: 0 0 50%;
+    max-width: 50%;
+}

@@ -7,3 +7,7 @@
     width: 100%;
     position: relative;
 }
+
+.column{
+    padding: 0 10px;
+}

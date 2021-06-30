@@ -1,0 +1,17 @@
+.square-btn{
+    background: #f4f4f4 none repeat scroll 0 0;
+    color: #088dcd;
+    padding: 9px 20px;
+    font-size: 14px;
+    border-radius: 6px;
+    text-transform: capitalize;
+}
+
+.square-btn.active{
+    background: #088dcd none repeat scroll 0 0;
+    color: #fff;
+}
+
+.square-btn:hover{
+    background: #ebebeb none repeat scroll 0 0;
+}
