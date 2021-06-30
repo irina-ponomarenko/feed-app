@@ -16,7 +16,7 @@ const TimeBlock = () => {
             <img src={clock} className="image-widget" alt="image widget"/>
             <div className="date-time">
                 <Clock
-                    format={"h:mm"}
+                    format={"hh:mm"}
                     style={{fontSize: "40px"}}
                     ticking={true}
                 />

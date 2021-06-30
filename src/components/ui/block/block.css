@@ -60,13 +60,14 @@ time{
 
 .date time{
     color: #3e3f5e;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: bold;
     display: flex;
     margin: 0 auto;
     margin-top: 10px;
     max-width: 90%;
     text-shadow: 0 0 3px rgba(255, 255, 255, 0.9);
+    text-align: center;
 }
 
 .date-time{
