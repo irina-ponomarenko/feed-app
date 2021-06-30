@@ -2,6 +2,8 @@ import React from "react";
 import LinkButtonSquare from "../ui/linkButtonSquare/LinkButtonSquare";
 
 import "./centerColumn.css";
+import Block from "../ui/block/Block";
+import TitleBlock from "../ui/titleBlock/TitleBlock";
 
 const CenterColumn = () => {
     const listBtnFilter = [
@@ -44,6 +46,11 @@ const CenterColumn = () => {
                     })
                 }
             </ul>
+            <Block>
+                <TitleBlock
+                    title="Create New Post"
+                />
+            </Block>
         </div>
 
     );

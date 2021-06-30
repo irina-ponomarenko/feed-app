@@ -10,4 +10,12 @@
 
 .column{
     padding: 0 10px;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.column .block{
+    min-height: 244px;
+    max-width: 284px;
 }
