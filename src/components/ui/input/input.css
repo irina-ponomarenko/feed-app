@@ -12,3 +12,32 @@
 .input-field:focus{
     border-color: #088dcd;
 }
+
+.add-post-input{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    padding: 10px 20px 10px 50px;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.add-post-input:focus{
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.wrapper-input{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.wrapper-input::before{
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: url("/src/assets/images/pen.svg")no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}

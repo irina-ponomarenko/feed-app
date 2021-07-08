@@ -1,9 +1,16 @@
 import React from "react";
+import {Link} from "react-router-dom";
+
+import Block from "../ui/block/Block";
+import TitleBlock from "../ui/titleBlock/TitleBlock";
+import Input from "../ui/input/Input";
 import LinkButtonSquare from "../ui/linkButtonSquare/LinkButtonSquare";
 
 import "./centerColumn.css";
-import Block from "../ui/block/Block";
-import TitleBlock from "../ui/titleBlock/TitleBlock";
+
+import Image from "../../assets/images/image.png";
+import Activity from "../../assets/images/activity.png";
+import LiveStream from "../../assets/images/live-stream.png";
 
 const CenterColumn = () => {
     const listBtnFilter = [
@@ -28,7 +35,29 @@ const CenterColumn = () => {
 
             }
         }
-    ]
+    ];
+
+
+    const listActions = [
+        {
+            link: "",
+            image: Image,
+            alt: "Image",
+            title: "Photo/Video",
+        },
+        {
+            link: "",
+            image: Activity,
+            alt: "Activity",
+            title: "Feeling/Activity",
+        },
+        {
+            link: "",
+            image: LiveStream,
+            alt: "Live Stream",
+            title: "Live Stream",
+        },
+    ];
     return (
         <div className="center-column">
             <ul className="list-filters">
@@ -50,6 +79,30 @@ const CenterColumn = () => {
                 <TitleBlock
                     title="Create New Post"
                 />
+                <div className="wrapper-input">
+                    <Input
+                        extraClass="add-post-input"
+                        placeholder="Create New Post"
+                    />
+                </div>
+                <ul className="list-actions">
+                    {
+                        listActions.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    <Link to={item.link}>
+                                        <i>
+                                            <img src={item.image} alt={item.alt}/>
+                                        </i>
+                                        <span>
+                                            {item.title}
+                                        </span>
+                                    </Link>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
             </Block>
         </div>
 

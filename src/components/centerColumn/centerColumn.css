@@ -21,3 +21,42 @@
     max-width: 50%;
     padding: 0 10px;
 }
+
+.list-actions{
+    display: flex;
+    align-items: center;
+}
+
+.list-actions li{
+    background: transparent none repeat scroll 0 0;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 12px;
+    padding: 6px 20px;
+    transition: all 0.2s linear 0s;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.list-actions li:hover{
+    background: #e7e7e7 none repeat scroll 0 0;
+}
+
+.list-actions li a span{
+    font-size: 12px;
+    font-weight: 500;
+    color: #3e3f5e;
+}
+
+.list-actions li a{
+    display: flex;
+    align-items: center;
+}
+
+.list-actions li a i img{
+    max-width: 18px;
+}
+
+.list-actions li a i{
+    margin-right: 5px;
+}
