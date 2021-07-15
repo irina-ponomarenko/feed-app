@@ -1,0 +1,42 @@
+.title-name a{
+    color: #088dcd;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+.title-name span{
+    font-size: 12px;
+    width: 90%;
+    color: #3e3f5e;
+}
+
+.title-public,
+.date{
+    position: relative;
+    padding-left: 12px;
+    color: #999;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.title-public::before{
+    content: "";
+    position: absolute;
+    background: url("/src/assets/images/globe.svg")no-repeat;
+    width: 10px;
+    height: 10px;
+    background-size: contain;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.date{
+    padding-left: 0;
+    margin-left: 5px;
+}
+
+.title-header-post{
+    margin-left: 15px;
+}

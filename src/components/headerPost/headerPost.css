@@ -1,0 +1,9 @@
+.header-post,
+.header-info{
+    display: flex;
+    align-items: center;
+}
+
+.header-post{
+    justify-content: space-between;
+}

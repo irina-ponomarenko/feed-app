@@ -1,0 +1,26 @@
+figure {
+    margin: 0 0 1rem;
+}
+
+.avatar-small{
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    width: 40px;
+    margin-top: 0;
+    position: relative;
+}
+
+.avatar-small img{
+    border-radius: 100%;
+    border: 1px solid #cacaca;
+    height: auto;
+    max-width: 100%;
+}
+
+.avatar-small div{
+    position: absolute;
+    bottom: 0;
+    right: -2px;
+}
+

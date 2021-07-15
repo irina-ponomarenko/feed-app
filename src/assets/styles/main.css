@@ -31,6 +31,10 @@ button, a, p, span, em{
     font-family: 'Roboto', sans-serif;
 }
 
+p{
+    margin: 0;
+}
+
 .container-center{
     max-width: 1440px;
     width: 100%;

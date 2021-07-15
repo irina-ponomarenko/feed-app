@@ -5,12 +5,15 @@ import Block from "../ui/block/Block";
 import TitleBlock from "../ui/titleBlock/TitleBlock";
 import Input from "../ui/input/Input";
 import LinkButtonSquare from "../ui/linkButtonSquare/LinkButtonSquare";
+import NewPost from "../newPost/NewPost";
 
 import "./centerColumn.css";
 
 import Image from "../../assets/images/image.png";
 import Activity from "../../assets/images/activity.png";
 import LiveStream from "../../assets/images/live-stream.png";
+import AvatarPost from "../../assets/images/users/user1.jpeg";
+
 
 const CenterColumn = () => {
     const listBtnFilter = [
@@ -58,6 +61,7 @@ const CenterColumn = () => {
             title: "Live Stream",
         },
     ];
+
     return (
         <div className="center-column">
             <ul className="list-filters">
@@ -103,6 +107,12 @@ const CenterColumn = () => {
                         })
                     }
                 </ul>
+            </Block>
+            <Block>
+                <NewPost
+                    avatarSmall={AvatarPost}
+                    statusClass="active-status"
+                />
             </Block>
         </div>
 
