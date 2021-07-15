@@ -16,6 +16,7 @@
     "react": "^17.0.2",
     "react-circular-progressbar": "^2.0.4",
     "react-dom": "^17.0.2",
+    "react-facebook-emoji": "^1.0.12",
     "react-live-clock": "^5.2.0",
     "react-moment": "^1.1.1",
     "react-router": "^5.2.0",

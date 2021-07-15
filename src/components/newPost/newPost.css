@@ -1,0 +1,22 @@
+.list-buttons{
+    display: flex;
+    align-items: center;
+}
+
+.list-buttons li{
+    background: #eae9ee;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 5px 20px;
+    vertical-align: middle;
+    transition: all 0.2s linear 0s;
+    position: relative;
+}
+
+.list-buttons li:not(:last-child){
+    margin-right: 8px;
+}
+
+.emotions-block{
+    margin-top: 20px;
+}

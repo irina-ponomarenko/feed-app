@@ -1,0 +1,31 @@
+.grey-btn{
+    color: #82828e;
+    font-size: 13px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.grey-btn::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    background-size: contain;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.grey-btn.like:before{
+    background: url("/src/assets/images/like.svg")no-repeat;
+}
+
+.grey-btn.comment::before{
+    background: url("/src/assets/images/users-comments.svg")no-repeat;
+    background-size: contain;
+}
+
+.grey-btn.share::before{
+    background: url("/src/assets/images/share-icon.svg")no-repeat;
+    background-size: contain;
+}

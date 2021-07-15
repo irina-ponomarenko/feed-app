@@ -1,0 +1,35 @@
+.reply{
+    font-size: 13px;
+    margin-top: 19px;
+    position: relative;
+    color: #3e3f5e;
+    padding-right: 17px;
+}
+
+.reply::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 13px;
+    height: 13px;
+    background: url("/src/assets/images/reply-message.svg")no-repeat;
+    background-size: contain;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.reply:hover{
+    color: #088dcd;
+}
+
+.reply:hover::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 13px;
+    height: 13px;
+    background: url("/src/assets/images/reply-message-blue.svg")no-repeat;
+    background-size: contain;
+    top: 50%;
+    transform: translateY(-50%);
+}
