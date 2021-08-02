@@ -1,0 +1,18 @@
+.containerEmoji{
+    max-width: fit-content;
+    position: absolute;
+    left: 0;
+    bottom: 37px;
+    -webkit-transform: translate3d(-6%, 0, 0);
+    transform: translate3d(-6%, 0, 0);
+    -webkit-transition: .3s .3s;
+    transition: .3s .3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.emotions-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

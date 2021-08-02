@@ -9,6 +9,7 @@ const GreyLinkBtn = (props) => {
             className={"grey-btn " + props.extraClass}
         >
             {props.title}
+            {props.emoji}
         </Link>
     );
 };

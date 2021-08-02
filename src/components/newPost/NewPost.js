@@ -8,7 +8,9 @@ import TextPostBody from "../ui/textPostBody/TextPostBody";
 import FollowBlock from "../followBlock/FollowBlock";
 import WatchInfoPost from "../watchInfoPost/WatchInfoPost";
 import GreyLinkBtn from "../ui/greyLinkBtn/GreyLinkBtn";
-import Emojis from "../emojis/Emojis";
+import Emoji from "../emojis/FacebookEmoji";
+import EmojiState from "../emojiState/EmojiState";
+
 
 
 const NewPost = (props) => {
@@ -16,17 +18,20 @@ const NewPost = (props) => {
         {
             title: "Like",
             link: "",
-            extraClass: "like"
+            extraClass: "like",
+            emoji: <Emoji
+                extraClass="containerEmoji"
+            />
         },
         {
             title: "Comment",
             link: "",
-            extraClass: "comment"
+            extraClass: "comment",
         },
         {
             title: "Share",
             link: "",
-            extraClass: "share"
+            extraClass: "share",
         },
     ];
     return (
@@ -58,13 +63,14 @@ const NewPost = (props) => {
                                             link={item.link}
                                             title={item.title}
                                             extraClass={item.extraClass}
+                                            emoji={item.emoji}
                                         />
                                     </li>
                                 )
                             })
                         }
                     </ul>
-                    <Emojis/>
+                    <EmojiState/>
                 </div>
             </FollowBlock>
         </div>

@@ -1,0 +1,98 @@
+.emoji-state {
+    float: right;
+    margin-top: -2px;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.emoji-state > p {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    margin-bottom: 0;
+    vertical-align: sub;
+    color: #3e3f5e;
+}
+
+.popover-wrapper {
+    position: relative;
+    margin-top: 0;
+    display: inline-block;
+}
+
+.emoji-state > .popover-wrapper {
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+.popover-title {
+    font-size: 24px;
+    line-height: 36px;
+    text-decoration: none;
+    color: rgb(228, 68, 68);
+    text-align: center;
+    padding: 15px 0;
+}
+
+.emoji-state > .popover-wrapper > a img {
+    border: 2px solid #fff;
+    border-radius: 100%;
+    float: left;
+    margin-left: -8px;
+    max-width: 26px;
+    cursor: pointer;
+}
+
+.popover-content {
+    background-color: #fff;
+    border-radius: 8px;
+    bottom: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0,0.26);
+    left: -20px;
+    opacity: 0;
+    padding: 10px;
+    position: absolute;
+    transform: translate(0px, 10px);
+    visibility: hidden;
+    width: 100px;
+}
+
+.popover-content > div{
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.popover-content > div > span {
+    font-size: 12px;
+    font-weight: 500;
+    width: 100%;
+    margin-left: 5px;
+}
+
+.popover-content > div  > img {
+    max-width: 20px;
+}
+
+.namelist {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+.namelist > li {
+    color: #82828e;
+    float: left;
+    font-size: 11px;
+    line-height: 16px;
+    width: 100%;
+}
+
+.popover-wrapper:hover .popover-content{
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -10px);
+    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
