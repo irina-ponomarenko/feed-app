@@ -8,7 +8,7 @@ import TextPostBody from "../ui/textPostBody/TextPostBody";
 import FollowBlock from "../followBlock/FollowBlock";
 import WatchInfoPost from "../watchInfoPost/WatchInfoPost";
 import GreyLinkBtn from "../ui/greyLinkBtn/GreyLinkBtn";
-import Emoji from "../emojis/FacebookEmoji";
+import Emoji from "../ui/emojis/FacebookEmoji";
 import EmojiState from "../emojiState/EmojiState";
 
 
