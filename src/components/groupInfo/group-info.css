@@ -1,0 +1,77 @@
+.container-icon img {
+    border-radius: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.container-icon{
+    display: flex;
+    margin-bottom: 0;
+    max-width: 60px;
+}
+
+.list-group li{
+    display: flex;
+    align-items: center;
+}
+
+.list-group li:not(:last-child){
+    border-bottom: 1px dashed #c2c2ce;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.name-group{
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.name-notifications{
+    position: relative;
+    padding-left: 14px;
+    color: #92929e;
+    display: inline-block;
+    font-size: 12px;
+    width: 100%;
+}
+
+.name-notifications::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 13px;
+    height: 12px;
+    background: url("/src/assets/images/notification-bell-svgrepo-com.svg")no-repeat;
+    background-size: contain;
+    top: 50%;
+    transform: translateY(-50%)rotate(15deg);
+}
+
+.value-notification{
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 10px;
+    padding: 1px 3px;
+    color: #f0506e;
+    margin-left: 5px;
+}
+
+.link-name-notifications{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 5px 0;
+}
+
+.feed-group{
+    color: #088dcd;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.counter-notifications{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    max-width: 70%;
+}
