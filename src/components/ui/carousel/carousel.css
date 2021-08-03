@@ -1,0 +1,34 @@
+.advertising-carousel .slick-slider .slick-dots{
+    bottom: -10px;
+}
+
+.advertising-carousel .slick-slider  .slick-dots li{
+    width: 10px;
+    height: 10px;
+    text-align: center;
+}
+
+.advertising-carousel .slick-slider  .slick-dots li button::before{
+    border: 1px solid #088dcd;
+    border-radius: 100%;
+    display: inline-block;
+    margin: 0 2px;
+    width: 10px;
+    height: 10px;
+    color: transparent;
+    font-size: 10px;
+    line-height: 10px;
+    opacity: 1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.advertising-carousel .slick-slider  .slick-dots li.slick-active button::before{
+    color: #088dcd;
+    left: 1px;
+    top: 0;
+    bottom: 0;
+    right: 1px;
+}

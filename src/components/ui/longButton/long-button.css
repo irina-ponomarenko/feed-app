@@ -1,0 +1,19 @@
+.long-btn{
+    border: 1px solid #088dcd;
+    border-radius: 35px;
+    color: #088dcd;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 10px;
+    text-align: center;
+    transition: all 0.2s linear 0s;
+    width: 100%;
+}
+
+a.long-btn:hover{
+    background: #088dcd none repeat scroll 0 0;
+    color: #fff;
+    transform: translateY(-5px);
+    z-index: 5;
+}

@@ -5,6 +5,14 @@ import GroupInfo from "../groupInfo/GroupInfo";
 
 import YourGroup1  from "../../assets/images/your-group1.jpeg";
 import YourGroup2 from "../../assets/images/your-group2.jpeg";
+import CarouselBlock from "../ui/carousel/CarouselBlock";
+import CarouselAdvertising from "../causelAdvertising/CrouselAdvertising";
+import LongButton from "../ui/longButton/LongButton";
+
+import SideBar1 from "../../assets/images/advertising/sidebar-info.jpeg";
+import SideBar2 from "../../assets/images/advertising/sidebar-info2.jpeg";
+import GroupUser1 from "../../assets/images/users/frnd-figure2.jpeg";
+import GroupUser2 from "../../assets/images/users/frnd-figure3.jpeg";
 
 const ColumnRight = () => {
     const listGroups = [
@@ -31,6 +39,36 @@ const ColumnRight = () => {
             feedViewName: "view feed",
         },
     ];
+
+    const listAdvertising = [
+        {
+            image: SideBar1,
+            alt: "Side Bar Bg",
+            member: "505k",
+            userAvatar: GroupUser1,
+            altUser: "Group Interface Icon",
+            linkUser: "",
+            title: "Social Research",
+            subTitle: "@biolabest",
+            buttonCarousel: <LongButton
+                                nameButton="Join Community"
+                            />,
+        },
+        {
+            image: SideBar2,
+            alt: "Side Bar Bg",
+            member: "505k",
+            userAvatar: GroupUser2,
+            altUser: "Group Interface Icon",
+            linkUser: "",
+            title: "Bio Labest Group",
+            subTitle: "@biolabest",
+            buttonCarousel: <LongButton
+                                nameButton="Join Community"
+                            />,
+        },
+    ];
+
     return (
         <div className="column">
             <Block>
@@ -58,6 +96,33 @@ const ColumnRight = () => {
                         })
                     }
                 </ul>
+            </Block>
+            <Block>
+                <TitleBlock
+                    title="Suggested Group"
+                />
+                <CarouselBlock
+                    extraClass="advertising-carousel"
+                >
+                    {
+                        listAdvertising.map((item, index) => {
+                            return(
+                                <CarouselAdvertising
+                                    key={index}
+                                    image={item.image}
+                                    alt={item.alt}
+                                    member={item.member}
+                                    userAvatar={item.userAvatar}
+                                    altUser={item.altUser}
+                                    linkUser={item.linkUser}
+                                    title={item.title}
+                                    subTitle={item.subTitle}
+                                    buttonCarousel={item.buttonCarousel}
+                                />
+                            )
+                        })
+                    }
+                </CarouselBlock>
             </Block>
         </div>
     );
