@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 
 import Block from "../ui/block/Block";
@@ -16,6 +16,16 @@ import AvatarPost from "../../assets/images/users/user1.jpeg";
 
 
 const CenterColumn = () => {
+    let newPostRef = React.createRef();
+    let [showNewPost, setShowNewPost] = useState(false);
+
+    useEffect(() => {
+        if (localStorage.getItem("token") !== null) {
+            console.log("Local storage is empty");
+            setShowNewPost(!showNewPost);
+        }
+    }, []);
+
     const listBtnFilter = [
         {
             target: "_blank",
@@ -39,7 +49,6 @@ const CenterColumn = () => {
             }
         }
     ];
-
 
     const listActions = [
         {
@@ -79,35 +88,42 @@ const CenterColumn = () => {
                     })
                 }
             </ul>
-            <Block>
-                <TitleBlock
-                    title="Create New Post"
-                />
-                <div className="wrapper-input">
-                    <Input
-                        extraClass="add-post-input"
-                        placeholder="Create New Post"
-                    />
-                </div>
-                <ul className="list-actions">
-                    {
-                        listActions.map((item, index) => {
-                            return (
-                                <li key={index}>
-                                    <Link to={item.link}>
-                                        <i>
-                                            <img src={item.image} alt={item.alt}/>
-                                        </i>
-                                        <span>
+            {
+                showNewPost
+                    ?   <Block
+                        extraClass="new-post"
+                        ref={newPostRef}
+                    >
+                        <TitleBlock
+                            title="Create New Post"
+                        />
+                        <div className="wrapper-input">
+                            <Input
+                                extraClass="add-post-input"
+                                placeholder="Create New Post"
+                            />
+                        </div>
+                        <ul className="list-actions">
+                            {
+                                listActions.map((item, index) => {
+                                    return (
+                                        <li key={index}>
+                                            <Link to={item.link}>
+                                                <i>
+                                                    <img src={item.image} alt={item.alt}/>
+                                                </i>
+                                                <span>
                                             {item.title}
                                         </span>
-                                    </Link>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </Block>
+                                            </Link>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </Block>
+                    : null
+            }
             <Block>
                 <NewPost
                     avatarSmall={AvatarPost}
