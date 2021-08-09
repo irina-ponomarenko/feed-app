@@ -19,6 +19,11 @@
     display: block;
 }
 
+.popup.sign-form .name-user,
+.popup.sign-form .email-user{
+    display: none;
+}
+
 .header-popup h3{
     text-align: center;
 }

@@ -10,9 +10,14 @@ const Popup = (props) => {
         setIsOpen(props.isOpen);
     }, [props.isOpen]);
 
+    const handleClick = () => {
+        let input = document.querySelector(".input-change").value.trim();
+        props.updateData(input);
+    }
+
 
     return ReactDOM.createPortal(
-        <div className={"popup " + (isOpen ? "is-visible" : "")}>
+        <div className={"popup " + (isOpen  ? "is-visible " : "" ) + props.extraClass}>
             <div className="header-popup">
                 <h3>
                     {props.title}
@@ -22,9 +27,15 @@ const Popup = (props) => {
             <div className="body-popup">
                 {props.children}
             </div>
+            {/*<input type="text" className="input-change"/>*/}
+            {/*<button onClick={handleClick}>update</button>*/}
         </div>,
         document.getElementById("portal")
     );
+};
+
+Popup.defaultProps = {
+    extraClass: "",
 };
 
 export default Popup;

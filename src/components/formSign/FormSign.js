@@ -1,28 +1,72 @@
 import React, {useState} from "react";
 import Input from "../ui/input/Input";
 import Button from "../ui/button/Button";
+import store from "../../store/store";
 
-const FormSign = () => {
+import "./form.css";
+
+const FormSign = (props) => {
     let userRef = React.createRef();
     let passwordRef = React.createRef();
+    let nameRef = React.createRef();
+    let emailRef = React.createRef();
+
+    let [msg, setMessage] = useState();
 
     let handlerFormSubmit = (event) => {
-        // event.preventDefault();
+        event.preventDefault();
 
-        let userName = userRef.current.value.trim();
-        let passwordUser = passwordRef.current.value.trim();
+        let login = userRef.current.value.trim();
+        let password = passwordRef.current.value.trim();
+        let name = nameRef.current.value.trim();
+        let email = emailRef.current.value.trim();
 
-        if(userName === "admin" && passwordUser === "12345"){
+        if(login === "admin" && password === "12345"){
             let random = Math.random().toString(36).substring(7);
             let token = random;
             localStorage.setItem('token', token);
+            store.dispatch({ type: 'token', payload: {token: token }});
         }
         else{
             console.log("Your login or password is wrong");
         }
+
+        let createUser = {
+            name: name,
+            email: email,
+            login: login,
+            password: password
+        };
+
+        fetch('api/create-new-user', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(createUser),
+        })
+            .then((res) => {
+                return res.json();
+            })
+            .then((result) => {
+                setMessage(result.message);
+            });
     };
+    console.log(msg);
 
     let listInputs = [
+        {
+            type: "text",
+            placeholder: "Enter your Name",
+            extraClass: "name-user",
+            refInput: nameRef
+        },
+        {
+            type: "email",
+            placeholder: "Enter your Email",
+            extraClass: "email-user",
+            refInput: emailRef
+        },
         {
             type: "text",
             placeholder: "Enter your Login",
@@ -55,10 +99,15 @@ const FormSign = () => {
                     })
                 }
             </ul>
+            <p className="warn-message">
+                {
+                    msg
+                }
+            </p>
             <Button
                 type="submit"
                 className="btn-blue-popup"
-                text="Sign In"
+                text={props.text}
             />
         </form>
     );

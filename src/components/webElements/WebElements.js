@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 
 import "./webElements.css";
 
@@ -9,20 +9,27 @@ import  bell from  "../../assets/images/bell.svg";
 import  plus from  "../../assets/images/plus.svg";
 import  blocks from  "../../assets/images/blocks.svg";
 import  sign from  "../../assets/images/user-login.svg";
-import FormSign from "../formSign/FormSign";
-
+import logout from "../../assets/images/logout.svg";
 
 import RoundBtn from "../ui/roundBtn/RoundBtn";
 import UserElement from "../userElement/UserElement";
 import Popup from "../ui/popup/Popup";
+import Button from "../ui/button/Button";
+import FormSign from "../formSign/FormSign";
+import store from "../../store/store";
 
 
 
-const WebElements = () => {
+const WebElements = (props) => {
     const [isOpenModal, setIsOpenModal] = useState(false);
+    const [isOpenModalRegistration, setIsOpenModalRegistration] = useState(false);
 
     let closeModal = () => {
       setIsOpenModal(false);
+    };
+
+    let closeModalReg = () => {
+        setIsOpenModalRegistration(false);
     };
 
     const webElementsList = [
@@ -89,7 +96,28 @@ const WebElements = () => {
                 setIsOpenModal(true);
             }
         },
+        {
+            url: logout,
+            alt: "logOut",
+            target: true,
+            class: "log-out-btn",
+            handlerClick: () => {
+                if(localStorage.getItem("token") !== null){
+                    localStorage.removeItem("token");
+                    store.dispatch({ type: 'token', payload: {token: null }});
+                }
+            }
+        },
     ];
+
+    let handlerRegister = () => {
+        setIsOpenModalRegistration(true);
+    };
+
+
+    let updateData = (input) => {
+        console.log(input);
+    }
 
     return (
         <React.Fragment>
@@ -119,8 +147,28 @@ const WebElements = () => {
                 title="Sign In"
                 isOpen={isOpenModal}
                 closeModal={closeModal}
+                updateData={updateData}
+                extraClass="sign-form"
             >
-               <FormSign/>
+               <FormSign
+                   text="Sign In"
+               />
+               <Button
+                   type="button"
+                   className="btn-blue-popup"
+                   text="Registration"
+                   onClick={handlerRegister}
+               />
+            </Popup>
+            <Popup
+                title="Registration"
+                isOpen={isOpenModalRegistration}
+                closeModal={closeModalReg}
+            >
+                <FormSign
+                    text="Registration"
+                />
+
             </Popup>
         </React.Fragment>
     );

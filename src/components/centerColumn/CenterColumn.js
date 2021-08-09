@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
+import { connect } from "react-redux";
 
 import Block from "../ui/block/Block";
 import TitleBlock from "../ui/titleBlock/TitleBlock";
@@ -15,9 +16,10 @@ import LiveStream from "../../assets/images/live-stream.png";
 import AvatarPost from "../../assets/images/users/user1.jpeg";
 
 
-const CenterColumn = () => {
+const CenterColumn = (props) => {
     let newPostRef = React.createRef();
     let [showNewPost, setShowNewPost] = useState(false);
+    console.log(props)
 
     useEffect(() => {
         if (localStorage.getItem("token") !== null) {
@@ -25,6 +27,16 @@ const CenterColumn = () => {
             setShowNewPost(!showNewPost);
         }
     }, []);
+
+    useEffect(() => {
+        if(localStorage.getItem("token") !== null){
+            setShowNewPost(true);
+        }
+        else {
+            setShowNewPost(false);
+        }
+
+    }, [props.token]);
 
     const listBtnFilter = [
         {
@@ -135,4 +147,11 @@ const CenterColumn = () => {
     );
 };
 
-export default CenterColumn;
+function mapStateToProps(state) {
+    return {
+        token: state.userInfo.token,
+    }
+}
+
+
+export default connect(mapStateToProps) (CenterColumn);
