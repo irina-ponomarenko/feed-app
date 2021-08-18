@@ -1,20 +1,28 @@
+import dotenv from "dotenv";
+
 import express from 'express';
+import cors from "cors";
+import cookieParser from "cookie-parser";
 import bodyParser from 'body-parser';
 import Users from "./db/schemas/users.js";
+import router from "./router/index.js";
 
-
+dotenv.config();
 const app = express();
 
-app.use(
-    bodyParser.json()
-);
+const PORT = process.env.PORT || 7000;
+
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(cors());
+app.use('/api', router);
 
 app.post('/api/create-new-user',  async (req, res) => {
-    let { name, email, login, password } = req.body;
+    let { name, login, password } = req.body;
 
 
     try {
-        const result = await Users.findOne({email});
+        const result = await Users.findOne({login});
         if(result){
             return res.json({
                 message: "*Под этим email уже существует пользователь"
@@ -24,7 +32,6 @@ app.post('/api/create-new-user',  async (req, res) => {
         try {
             await Users.create({
                 name,
-                email,
                 login,
                 password
             });
@@ -79,6 +86,8 @@ app.post('/api/create-new-user',  async (req, res) => {
 
 });
 
-app.listen(7000, () => {
-    console.log('server is started');
+
+app.listen(PORT, () => {
+    console.log(`server started on PORT = ${PORT}`);
 });
+
