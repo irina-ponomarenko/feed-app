@@ -6,7 +6,6 @@ import store from "../../store/store";
 import "./form.css";
 
 const FormSign = (props) => {
-    let userRef = React.createRef();
     let passwordRef = React.createRef();
     let nameRef = React.createRef();
     let emailRef = React.createRef();
@@ -16,10 +15,9 @@ const FormSign = (props) => {
     let handlerFormSubmit = (event) => {
         event.preventDefault();
 
-        let login = userRef.current.value.trim();
+        let login = emailRef.current.value.trim();
         let password = passwordRef.current.value.trim();
         let name = nameRef.current.value.trim();
-        let email = emailRef.current.value.trim();
 
         if(login === "admin" && password === "12345"){
             let random = Math.random().toString(36).substring(7);
@@ -33,7 +31,6 @@ const FormSign = (props) => {
 
         let createUser = {
             name: name,
-            email: email,
             login: login,
             password: password
         };
@@ -66,12 +63,6 @@ const FormSign = (props) => {
             placeholder: "Enter your Email",
             extraClass: "email-user",
             refInput: emailRef
-        },
-        {
-            type: "text",
-            placeholder: "Enter your Login",
-            extraClass: "user-name",
-            refInput: userRef
         },
         {
             type: "password",

@@ -19,8 +19,7 @@
     display: block;
 }
 
-.popup.sign-form .name-user,
-.popup.sign-form .email-user{
+.popup.sign-form .name-user{
     display: none;
 }
 
