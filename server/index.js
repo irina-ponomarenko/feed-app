@@ -17,40 +17,40 @@ app.use(cookieParser());
 app.use(cors());
 app.use('/api', router);
 
-app.post('/api/create-new-user',  async (req, res) => {
-    let { name, login, password } = req.body;
-
-
-    try {
-        const result = await Users.findOne({login});
-        if(result){
-            return res.json({
-                message: "*Под этим email уже существует пользователь"
-            });
-        }
-
-        try {
-            await Users.create({
-                name,
-                login,
-                password
-            });
-
-            return res.json({
-                status: 200
-            });
-        } catch (error){
-            console.log(error);
-            return res.json({
-                error: 502
-            });
-        }
-    } catch (error) {
-        console.log(error);
-        return res.json({
-            error: 502
-        });
-    }
+// app.post('/api/create-new-user',  async (req, res) => {
+//     let { name, login, password } = req.body;
+//
+//
+//     try {
+//         const result = await Users.findOne({login});
+//         if(result){
+//             return res.json({
+//                 message: "*Под этим email уже существует пользователь"
+//             });
+//         }
+//
+//         try {
+//             await Users.create({
+//                 name,
+//                 login,
+//                 password
+//             });
+//
+//             return res.json({
+//                 status: 200
+//             });
+//         } catch (error){
+//             console.log(error);
+//             return res.json({
+//                 error: 502
+//             });
+//         }
+//     } catch (error) {
+//         console.log(error);
+//         return res.json({
+//             error: 502
+//         });
+//     }
 
    //
    // Users
@@ -84,7 +84,7 @@ app.post('/api/create-new-user',  async (req, res) => {
    //          }
    //      });
 
-});
+// });
 
 
 app.listen(PORT, () => {

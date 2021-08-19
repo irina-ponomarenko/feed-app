@@ -35,7 +35,7 @@ const FormSign = (props) => {
             password: password
         };
 
-        fetch('api/create-new-user', {
+        fetch('api/registration', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
