@@ -38,7 +38,8 @@ const FormSign = (props) => {
         fetch('api/registration', {
             method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify(createUser),
         })

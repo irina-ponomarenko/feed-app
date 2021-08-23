@@ -4,10 +4,11 @@ import express from 'express';
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import bodyParser from 'body-parser';
-import Users from "./db/schemas/users.js";
 import router from "./router/index.js";
 
 dotenv.config();
+
+
 const app = express();
 
 const PORT = process.env.PORT || 7000;
