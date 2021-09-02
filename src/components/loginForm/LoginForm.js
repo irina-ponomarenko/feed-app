@@ -34,15 +34,17 @@ const LoginForm = () => {
             .then((result) => {
                 setMessageUser(result.message);
                 setIsUserExist(result);
-
-                if(login === isUserExist.userData.user.login && password === "12345"){
-                    let random = Math.random().toString(36).substring(7);
-                    let token = random;
-                    localStorage.setItem('token', token);
+                
+                if(result){
+                    let token = {
+                        refreshToken: isUserExist.userData.refreshToken,
+                        accessToken: isUserExist.userData.accessToken
+                    };
+                    localStorage.setItem('token', JSON.stringify(token));
                     store.dispatch({ type: 'token', payload: {token: token }});
                 }
                 else{
-                    console.log("Your login or password is wrong");
+                    return messageUser;
                 }
             });
     };

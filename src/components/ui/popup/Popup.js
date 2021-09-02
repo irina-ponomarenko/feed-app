@@ -10,10 +10,10 @@ const Popup = (props) => {
         setIsOpen(props.isOpen);
     }, [props.isOpen]);
 
-    const handleClick = () => {
-        let input = document.querySelector(".input-change").value.trim();
-        props.updateData(input);
-    }
+    // const handleClick = () => {
+    //     let input = document.querySelector(".input-change").value.trim();
+    //     props.updateData(input);
+    // }
 
 
     return ReactDOM.createPortal(
