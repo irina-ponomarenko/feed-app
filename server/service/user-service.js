@@ -4,13 +4,14 @@ import { v4 as uuidv4 } from 'uuid';
 import mailService  from "./mail-service.js";
 import tokenService from "./token-service.js";
 import UserDto from "../dtos/user-dto/user-dto.js";
+import ApiError from "../exceptions/api-error.js";
 
 class UserService {
 
     async registration(login, password, name) {
         const candidate = await Users.findOne({login})
         if(candidate) {
-            throw new Error(`Пользователь с поточным ${login} уже существует`);
+            throw ApiError.BadRequest(`Пользователь с поточным ${login} уже существует`);
         }
         const hashPassword = await bcrypt.hash(password, 3);
         const activationLink = uuidv4();
@@ -26,8 +27,32 @@ class UserService {
         const tokens = tokenService.generateTokens({...userDto});
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
-        return {...tokens, user: userDto}
-    }
+        return {...tokens, user: userDto};
+    };
+
+    async activate(activationLink) {
+        const user = await Users.findOne({activationLink});
+        if (!user) {
+            throw ApiError.BadRequest("Некорректная ссылка активации");
+        }
+        user.isActivated = true;
+        await user.save();
+    };
+
+    async login(login, password) {
+        const user = await Users.findOne({login});
+        if(!user) {
+            throw ApiError.BadRequest("Пользователь с таким email не найден");
+        }
+        const isPasEquals = await bcrypt.compare(password, user.password);
+        if(!isPasEquals) {
+            throw ApiError.BadRequest("Неверный пароль");
+        }
+        const userDto = new UserDto(user);
+        const tokens = tokenService.generateTokens({...userDto});
+        await tokenService.saveToken(userDto.id, tokens.refreshToken);
+        return {...tokens, user: userDto};
+    };
 }
 
 const userService = new UserService();

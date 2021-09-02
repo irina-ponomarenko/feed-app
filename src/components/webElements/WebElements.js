@@ -15,10 +15,10 @@ import RoundBtn from "../ui/roundBtn/RoundBtn";
 import UserElement from "../userElement/UserElement";
 import Popup from "../ui/popup/Popup";
 import Button from "../ui/button/Button";
-import FormSign from "../formSign/FormSign";
+import Form from "../form/Form";
 import store from "../../store/store";
-
-
+import RegisterForm from "../registerForm/RegistrationForm";
+import LoginForm from "../loginForm/LoginForm";
 
 const WebElements = (props) => {
     const [isOpenModal, setIsOpenModal] = useState(false);
@@ -150,9 +150,7 @@ const WebElements = (props) => {
                 updateData={updateData}
                 extraClass="sign-form"
             >
-               <FormSign
-                   text="Sign In"
-               />
+               <LoginForm/>
                <Button
                    type="button"
                    className="btn-blue-popup"
@@ -165,9 +163,7 @@ const WebElements = (props) => {
                 isOpen={isOpenModalRegistration}
                 closeModal={closeModalReg}
             >
-                <FormSign
-                    text="Registration"
-                />
+                <RegisterForm/>
 
             </Popup>
         </React.Fragment>

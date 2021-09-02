@@ -5,18 +5,20 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import bodyParser from 'body-parser';
 import router from "./router/index.js";
+import errorMiddleware from "./middlewares/error-middleware.js";
 
 dotenv.config();
 
 
 const app = express();
 
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT_SERVER || 5000;
 
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 app.use('/api', router);
+app.use(errorMiddleware);
 
 // app.post('/api/create-new-user',  async (req, res) => {
 //     let { name, login, password } = req.body;
